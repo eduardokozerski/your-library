@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Library</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+</head>
+<body class="min-h-screen flex flex-col">
+    <div class="flex flex-col flex-grow">
+        <!-- Header -->
+        <header class="w-full shadow-lg py-4">
+            <div class="container mx-auto flex items-center pl-7">
+                <img class="w-8 h-8 mr-4" src="favicon.png" alt="Logo">
+                <h1 class="text-3xl font-semibold">your library</h1>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container-2xl m-0 p-10 flex flex-col flex-grow  bg-gray-300">
+            <div class="flex justify-center mb-9">
+                <button class="bg-green-700 hover:bg-green-800 text-white text-2xl font-semibold px-6 py-2 rounded shadow" id="addBookBtn">
+                    + Add Book
+                </button>
+            </div>
+        
+            <div class="books-grid grid gap-10 grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))] break-normal" id="booksGrid">
+                
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="w-full shadow-top py-4">
+            <div class="container mx-auto text-center">
+                <span class="font-semibold">eduardokozerski</span>
+                <a href="https://github.com/eduardokozerski" target="_blank" class="ml-1">
+                    <svg class="w-6 h-6 inline-block text-black" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.372 0 0 5.372 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.26.793-.577v-2.234c-3.338.726-4.033-1.609-4.033-1.609-.546-1.386-1.333-1.755-1.333-1.755-1.091-.744.083-.729.083-.729 1.205.084 1.838 1.237 1.838 1.237 1.072 1.837 2.809 1.306 3.494.998.108-.776.419-1.306.763-1.606-2.665-.304-5.466-1.333-5.466-5.933 0-1.311.468-2.381 1.236-3.222-.124-.303-.536-1.523.118-3.176 0 0 1.009-.322 3.3 1.23.96-.267 1.992-.4 3.018-.404 1.026.004 2.058.137 3.018.404 2.29-1.553 3.3-1.23 3.3-1.23.656 1.653.244 2.873.12 3.176.768.841 1.236 1.911 1.236 3.222 0 4.609-2.803 5.625-5.475 5.921.43.371.815 1.102.815 2.222v3.293c0 .319.192.694.801.576C20.565 21.797 24 17.301 24 12 24 5.372 18.628 0 12 0z" />
+                    </svg>
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal -->
+    <div id="addBookModal" class="fixed inset-0 hidden bg-gray-800 bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg p-6 w-full max-w-sm">
+            <div class="flex justify-between items-center mb-4">
+                <h5 class="text-xl font-semibold">Add New Book</h5>
+                <button class="text-black" onclick="closeModal()">✖</button>
+            </div>
+            <form id="bookForm">
+                <div class="mb-4">
+                    <label for="bookTitle" class="block font-semibold">Title</label>
+                    <input type="text" id="bookTitle" class="w-full border rounded p-2" placeholder="Title" required maxlength="50">
+                    <p class="error-msg text-red-500 text-sm" id="errorMsg"></p>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="bookAuthor" class="block font-semibold">Author</label>
+                    <input type="text" id="bookAuthor" class="w-full border rounded p-2" placeholder="Author" required maxlength="50">
+                </div>
+                <div class="mb-4">
+                    <label for="bookPages" class="block font-semibold">Number of pages</label>
+                    <input type="number" id="bookPages" class="w-full border rounded p-2" placeholder="Pages" required maxlength="1000">
+                </div>
+                <div class="mb-3 flex items-center space-x-3">
+                    <label for="bookRead" class="block font-semibold">Have you read it?</label>
+                    <input type="checkbox" id="bookRead" class="transform scale-125 border-gray-300 rounded">
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white py-2 rounded">Add Book</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
